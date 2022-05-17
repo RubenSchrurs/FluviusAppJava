@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1050.0" prefWidth="1400.0" style="-fx-background-color: #004B6C;" stylesheets="@gui.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DoelstellingController">
+   <children>
+      <AnchorPane layoutY="100.0" prefHeight="980.0" prefWidth="200.0" style="-fx-background-color: #306C86;">
+         <children>
+            <Button id="btnMenu1" fx:id="btnDashboard" mnemonicParsing="false" onAction="#SwitchToDashboard" prefHeight="60.0" prefWidth="200.0" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button id="btnMenu2" fx:id="btnCategorie" layoutY="60.0" mnemonicParsing="false" onAction="#SwitchToCategorie" prefHeight="60.0" prefWidth="200.0" text="Categorie" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnDoelstelling" layoutY="120.0" mnemonicParsing="false" onAction="#SwitchToDoelstelling" prefHeight="60.0" prefWidth="200.0" text="MVO Doelstelling" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button id="btnMenu3" fx:id="btnDatasource" layoutY="180.0" mnemonicParsing="false" onAction="#SwitchToDatasource" prefHeight="60.0" prefWidth="200.0" text="Datasource" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button id="btnMenu4" fx:id="btnSdg" layoutY="240.0" mnemonicParsing="false" onAction="#SwitchToSdg" prefHeight="60.0" prefWidth="200.0" text="SDG" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Pane layoutY="-100.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #306C86;">
+               <children>
+                  <ImageView fx:id="imgLogo" fitHeight="60.0" fitWidth="180.0" layoutX="10.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      
+      <Label fx:id="txtDisplayCurrentTab" layoutX="200.0" prefHeight="100.0" prefWidth="1520.0" style="-fx-background-color: white; -fx-label-padding: 30;" text="MVO Doelstelling" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TextFlow fx:id="txtCurrentUser" layoutX="1720.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" />
+      <BorderPane layoutX="236.0" layoutY="100.0" minWidth="-Infinity" prefHeight="980.0" prefWidth="200.0">
+         <left>
+            <BorderPane prefHeight="700.0" prefWidth="863.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <top>
+                  <GridPane alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="btnTerug" mnemonicParsing="false" onAction="#terug" text="Return" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="35.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnRemoveDoelstelling" mnemonicParsing="false" onAction="#removeDoelstelling" text="Remove" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        	<font>
+                              <Font size="18.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="35.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </top>
+               <center>
+                  <ListView fx:id="listDoelstellingen" prefHeight="980.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </left>
+         <top>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="300.0" text="Hoofddoelstellingen" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets top="25.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+      </BorderPane>
+      <BorderPane layoutX="446.0" layoutY="100.0" prefHeight="980.0" prefWidth="200.0">
+         <top>
+            <Label text="Sub doelstellingen" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets bottom="90.0" top="25.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+         <center>
+            <ListView fx:id="subDoelstelling" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <VBox layoutX="728.0" layoutY="243.0" prefHeight="836.8" prefWidth="350.0">
+         <children>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="lblNaam" text="Naam" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0">
+                     <children>
+                        <TextField fx:id="txtNaam" prefWidth="200.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="lblSDG" text="SDG" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="20.0">
+                     <children>
+                        <TextField fx:id="txtSDG" editable="false" prefWidth="145.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin></TextField>
+                        <Button fx:id="removeSDG" alignment="CENTER" mnemonicParsing="false" onAction="#removeSDG" style="-fx-background-color: white; -fx-text-fill: black;" text="X">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Sub SDG" textFill="WHITE" />
+                        <Label text="(Optioneel)" textFill="WHITE" />
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0">
+                     <children>
+                        <TextField fx:id="txtSubSDG" editable="false" prefWidth="200.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="lblDrempelwaarde" text="Drempelwaarde" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="20.0">
+                     <children>
+                        <TextField fx:id="txtDrempelwaarde" prefWidth="105.0" />
+                        <ComboBox fx:id="eenheidMenu" prefWidth="70.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Main MVO" textFill="WHITE" />
+                              <Label text="Doelstelling" textFill="WHITE" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0">
+                     <children>
+                        <ComboBox fx:id="mainDoelstelling" prefWidth="200.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Datasources" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                  </Label>
+                  <ListView fx:id="mvoDatasources" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox layoutX="1146.0" layoutY="100.0" prefHeight="980.0" prefWidth="300.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="300.0">
+               <children>
+                  <Label text="SDG's" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ListView fx:id="listSDG" prefHeight="300.0" prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="200.0">
+               <children>
+                  <Label text="Beschikbare Datasources" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ListView fx:id="alleDatasources" prefHeight="300.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <Pane layoutX="1720.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnLogout" graphicTextGap="1.0" layoutX="54.0" layoutY="27.0" mnemonicParsing="false" onAction="#Logout" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-insets: 2; -fx-font-weight: bold; -fx-text-fill: black;" text="Logout">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <VBox alignment="CENTER" layoutX="728.0" layoutY="100.0" prefHeight="143.0" prefWidth="350.0">
+         <children>
+            <Label text="Geselecteerde MVO Doelstelling" textFill="WHITE">
+               <padding>
+                  <Insets top="25.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="143.0" prefWidth="350.0" spacing="80.0">
+               <children>
+                  <Button fx:id="btnAddDoelstelling" mnemonicParsing="false" onAction="#addDoelstelling" text="Add">
+                  	<font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnEditDoelstelling" mnemonicParsing="false" onAction="#editDoelstelling" text="Edit">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+#btnMenu1, #btnMenu2, #btnMenu3, #btnMenu4{
+	-fx-background-color:  #306C86;
+}
+
+#btnMenu1:hover, #btnMenu2:hover, #btnMenu3:hover, #btnMenu4:hover{
+	-fx-background-color: #339900;
+}
+.button{
+	-fx-background-color: green;
+	-fx-font-weight: bold;
+	-fx-font-size: 18px;
+	-fx-text-fill: white;
+}
+
+#btnBestandKiezen{
+	-fx-font-size: 12px;
+}
+
+.button:hover{
+	-fx-background-color:  #339900;
+}
+
+voegCategorieToe {
+	-fx-background-color: white;
+	-fx-font-size: 14px;
+}
+.list-view .list-cell:even {
+-fx-background-color: white;
+-fx-text-fill: black;
+}
+.list-view .list-cell:odd {
+-fx-background-color: white;
+-fx-text-fill: black;
+}
+.list-view .list-cell:selected {
+	-fx-background-color: green;
+	-fx-text-fill: white;
+}

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #004B6C;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SdgController">
+   <children>
+      <AnchorPane layoutY="100.0" prefHeight="980.0" prefWidth="200.0" style="-fx-background-color: #306C86;" stylesheets="@gui.css" AnchorPane.leftAnchor="0.0">
+         <children>
+            <Button id="btnMenu1" fx:id="btnDashboard" mnemonicParsing="false" onAction="#SwitchToDashboard" prefHeight="60.0" prefWidth="200.0" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button id="btnMenu2" fx:id="btnCategorie" layoutY="60.0" mnemonicParsing="false" onAction="#SwitchToCategorie" prefHeight="60.0" prefWidth="200.0" text="Categorie" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button id="btnMenu3" fx:id="btnDoelstelling" layoutY="120.0" mnemonicParsing="false" onAction="#SwitchToDoelstelling" prefHeight="60.0" prefWidth="200.0" text="MVO Doelstelling" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button id="btnMenu4" fx:id="btnDatasource" layoutY="180.0" mnemonicParsing="false" onAction="#SwitchToDatasource" prefHeight="60.0" prefWidth="200.0" text="Datasource" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSdg" layoutY="240.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="SDG" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Pane layoutY="-100.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #306C86;" AnchorPane.leftAnchor="0.0">
+               <children>
+                  <ImageView fx:id="imgLogo" fitHeight="60.0" fitWidth="180.0" layoutX="10.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Label fx:id="txtDisplayCurrentTab" layoutX="200.0" prefHeight="100.0" prefWidth="1520.0" style="-fx-background-color: white; -fx-label-padding: 30;" text="Sustainable Development Goal">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TextFlow fx:id="txtCurrentUser" layoutX="1720.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" />
+      <VBox layoutX="200.0" layoutY="100.0" prefHeight="980.0" prefWidth="1720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <GridPane prefHeight="1009.0" prefWidth="1707.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Alle SDG's" textFill="WHITE" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label text="Sub SDG's" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label text="Beschrijving" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="allSdgView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" />
+                  <ListView fx:id="subSdgView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" />
+                  <Label fx:id="lblBeschrijving" maxHeight="-Infinity" maxWidth="500.0" text=" " textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <Pane layoutX="1720.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnLogout" graphicTextGap="1.0" layoutX="54.0" layoutY="27.0" mnemonicParsing="false" onAction="#Logout" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-insets: 2; -fx-font-weight: bold; -fx-text-fill: black;" text="Logout">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

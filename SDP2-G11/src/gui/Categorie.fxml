@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #004B6C;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CategorieController">
+   <children>
+      <AnchorPane id="btnMenu1" layoutY="100.0" prefHeight="980.0" prefWidth="200.0" style="-fx-background-color: #306C86;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <Pane layoutY="-100.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #306C86;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <ImageView fx:id="imgLogo" fitHeight="60.0" fitWidth="180.0" layoutX="10.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button id="btnMenu1" fx:id="btnDashboard" mnemonicParsing="false" onAction="#SwitchToDashboard" prefHeight="60.0" prefWidth="200.0" stylesheets="@gui.css" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCategorie" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" stylesheets="@gui.css" text="Categorie" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button id="btnMenu2" fx:id="btnDoelstelling" layoutY="120.0" mnemonicParsing="false" onAction="#SwitchToDoelstelling" prefHeight="60.0" prefWidth="200.0" stylesheets="@gui.css" text="MVO Doelstelling" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button id="btnMenu3" fx:id="btnDatasource" layoutY="180.0" mnemonicParsing="false" onAction="#SwitchToDatasource" prefHeight="60.0" prefWidth="200.0" stylesheets="@gui.css" text="Datasource" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button id="btnMenu4" fx:id="btnSdg" layoutY="240.0" mnemonicParsing="false" onAction="#SwitchToSdg" prefHeight="60.0" prefWidth="200.0" stylesheets="@gui.css" text="SDG" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label fx:id="txtDisplayCurrentTab" layoutX="200.0" prefHeight="100.0" prefWidth="1520.0" style="-fx-background-color: white; -fx-label-padding: 30;" text="Categorie" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <BorderPane id="borderpaneBeschikbaar" layoutX="200.0" layoutY="100.0" prefHeight="980.0" prefWidth="375.0" stylesheets="@gui.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <top>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" style="-fx-font-weight: bold;" text="Beschikbare SDG's" textAlignment="CENTER" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Button fx:id="btnAddCategorie" mnemonicParsing="false" onAction="#addCategorie" text="Add" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="txtCategorieNaamFieldAdd" promptText="Categorie naam" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </GridPane>
+         </top>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <center>
+            <ListView fx:id="listSDGs" prefHeight="838.0" BorderPane.alignment="CENTER" />
+         </center>
+         <bottom>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Beschikbare MVO Doelstellingen" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="3.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ListView fx:id="listVrijeDoelstellingen" prefHeight="200.0" />
+               </children>
+            </VBox>
+         </bottom>
+      </BorderPane>
+      <BorderPane layoutX="575.0" layoutY="100.0" prefHeight="980.0" prefWidth="300.0" style="-fx-background-color: #004B6C;" stylesheets="@gui.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <top>
+            <GridPane BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="955.0" style="-fx-font-weight: bold;" text="Categorieën" textAlignment="CENTER" textFill="WHITE" GridPane.columnSpan="2147483647">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Button fx:id="btnRemoveCategorie" mnemonicParsing="false" onAction="#removeCategorie" text="Remove" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+         </top>
+         <center>
+            <ListView fx:id="listCategories" onMousePressed="#handleListViewAction" prefHeight="838.0" prefWidth="496.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <BorderPane layoutX="875.0" layoutY="100.0" prefHeight="980.0" prefWidth="1045.0" stylesheets="@gui.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="875.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <top>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="285.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="200.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="200.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label style="-fx-font-weight: bold;" text="Details Categorie" textFill="WHITE" GridPane.halignment="LEFT">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="25.0" top="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER" style="-fx-font-weight: bold;" text="MVO Doelstellingen" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" style="-fx-font-weight: bold;" text="Gelinkte SDG's" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </GridPane>
+         </top>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane minWidth="285.0" prefWidth="345.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="lblCategorieNaam" style="-fx-font-weight: bold;" text="Naam" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets right="150.0" top="50.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="txtCategorieNaamFieldEdit" promptText="Categorie naam" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets left="25.0" right="25.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="btnEditCategorie" mnemonicParsing="false" onAction="#editCategorieNaam" text="Edit" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button fx:id="btnAddSDGToCategorie" mnemonicParsing="false" onAction="#addSdgToCategorie" text="Add" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Label style="-fx-font-weight: bold;" text="Voeg SDG toe" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="25.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <ListView fx:id="listAlleSDGs" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <center>
+                              <ListView fx:id="listDoelstellingToevoegen" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <GridPane minWidth="250.0" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                 <children>
+                                    <Label style="-fx-font-weight: bold;" text="Voeg doelstelling toe" textFill="WHITE" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="25.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Button fx:id="btnAddDoelstelling" mnemonicParsing="false" onAction="#addDoelstellingToCategorie" text="Add" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="15.0" top="15.0" />
+                                 </padding>
+                                 <rowConstraints>
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                 </rowConstraints>
+                              </GridPane>
+                           </top>
+                        </BorderPane>
+                     </children>
+                  </GridPane>
+                  <ListView fx:id="listLinkedSDGs" minWidth="200.0" prefHeight="880.0" prefWidth="350.0" />
+                  <ListView fx:id="listDoelstellingen" minWidth="200.0" prefHeight="880.0" prefWidth="350.0" />
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+      <Pane layoutX="1720.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnLogout" graphicTextGap="1.0" layoutX="54.0" layoutY="27.0" mnemonicParsing="false" onAction="#Logout" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-insets: 2; -fx-font-weight: bold; -fx-text-fill: black;" text="Logout">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
